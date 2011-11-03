@@ -34,3 +34,7 @@ group :development do
 	gem 'rspec-rails', '2.6.1.beta1'
 	gem 'webrat', '0.7.1'
 end
+
+group :test do
+	gem 'factory_girl_rails', '1.0'
+end

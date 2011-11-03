@@ -1,11 +1,19 @@
 <h1>Family Stats</h1>
 
+<table class = "familystats" summary = "Family Stats">
 <% @users = User.find(:all) %>
 <% @users.each do |user| %>
-<p>
-	<%= image_tag(user.robot, :alt => user.name, :class => "stats") %> <br />
+<tr>
+	<td class = "image">
+	<%= image_tag(user.robot, :alt => user.name, :class => "stats") %> 
+	</td>
+	
+	<td class = "stats">
 	<strong>Name:</strong> <%= user.name %> <br />
 	<strong>Level:</strong> <%= user.level.to_s %> <br />
-<p>
+	</td>
+	
+</tr>
 
 <% end %>
+</table>

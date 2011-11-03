@@ -1,2 +1,21 @@
 <h1>Welcome, <%= @user.name %></h1>
-<%= image_tag(@user.robot, :alt => @user.name, :class => "round") %>
+
+<table class = "homepage">
+	<tr>
+		
+		<td class = "image">
+			<%= image_tag(@user.robot, :alt => @user.name, :class => "round") %>
+		</td>
+		<td class = "stats"> 
+			<p> Your level is <%= @user.level %> </p>
+		</td>
+		
+	</tr>
+	
+</table>
+
+
+    <%= image_tag("input.png", :alt => "input data", :class => "round") %>     
+	<%= image_tag("admin.png", :alt => "admin", :class => "round") %>     
+	<%= image_tag("fight.png", :alt => "Fight!", :class => "round") %>     
+	<%= image_tag("shop.png", :alt => "Store", :class => "round") %>     
