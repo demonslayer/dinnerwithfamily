@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Dinner with Family | <%= @title %></title>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+	<head>
+  		<title><%= title %></title>
+  		<%= csrf_meta_tags %>
+  		<%= render 'layouts/stylesheets' %>
+	</head>
+	
+	<body>
+		
+		<div class="container">
+			<%= render 'layouts/header' %>
+			<section class="round">
+				<%= yield %>
+			</section>
+		</div>
+		
+		<%= render 'layouts/footer' %>
+	</body>
 </html>

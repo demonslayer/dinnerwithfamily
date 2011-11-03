@@ -56,5 +56,19 @@ describe PagesController do
       :content => "Dinner with Family | Help")
     end
   end
+  
+  describe "GET 'familystats'" do
+    it "should be successful" do
+      get 'familystats'
+      response.should be_success
+    end
+    
+    it "should have the right title" do
+      get 'familystats'
+      response.should have_selector("title",
+      :content => "Dinner with Family | Family Stats")
+    end
+    
+  end
 
 end

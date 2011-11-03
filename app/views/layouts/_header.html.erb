@@ -1,0 +1,13 @@
+<header>
+	<% logo = image_tag("banner.png", :alt => "Dinner with Family", :class => "round")%>
+	<%= link_to logo, root_path%>
+	
+	<nav class="round">
+		<ul>
+			<li><%= link_to "Home", root_path %></li>
+			<li><%= link_to "Select User", '#' %></li>
+			<li><%= link_to "Create User", newuser_path %></li>
+			<li><%= link_to "Family Stats", familystats_path %></li>
+		</ul>
+	</nav>
+</header>
