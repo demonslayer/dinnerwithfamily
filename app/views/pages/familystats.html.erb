@@ -1,3 +1,11 @@
 <h1>Family Stats</h1>
 
-<p>Everyone in the family is doing awesome!</p>
+<% @users = User.find(:all) %>
+<% @users.each do |user| %>
+<p>
+	<%= image_tag(user.robot, :alt => user.name, :class => "stats") %> <br />
+	<strong>Name:</strong> <%= user.name %> <br />
+	<strong>Level:</strong> <%= user.level.to_s %> <br />
+<p>
+
+<% end %>

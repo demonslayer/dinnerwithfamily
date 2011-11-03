@@ -113,3 +113,7 @@ footer {
 footer-nav {
 	float: none;
 }
+
+stats {
+	float: right;
+}

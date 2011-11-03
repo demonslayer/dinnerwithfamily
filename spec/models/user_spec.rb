@@ -2,7 +2,11 @@ require 'spec_helper'
 
 describe User do
   before(:each) do
-    @attr = { :name => "Example User", :robot => "databot.png", :level => 3}
+    @attr = { :name => "Example User", 
+      :robot => "databot.png", 
+      :level => 3,
+      :password => "booger",
+      :password_confirmation => "booger"}
   end
   
   it "should create a new instance given valid attributes" do
@@ -46,5 +50,13 @@ describe User do
     user_with_duplicate_name = User.new(@attr)
     user_with_duplicate_name.should_not be_valid
   end
+  
+  it "should require a password" do
+	  User.new(@attr.merge(:password => "", :password_confirmation => "")).should_not be_valid
+	end
+
+	it "should require password confirmation" do
+	  User.new(@attr.merge(:password => "foo", :password_confirmation => "bar")).should_not be_valid
+	end
   
 end
