@@ -1,6 +1,7 @@
 Dinnerwithfamily::Application.routes.draw do
   
-  get "users/new"
+  resources :users
+  
   get "pages/home"
   get "pages/about"
   get "pages/contact"
@@ -11,8 +12,7 @@ Dinnerwithfamily::Application.routes.draw do
   match '/about', :to => 'pages#about'
   match '/help', :to => 'pages#help'
   match '/familystats', :to => 'pages#familystats'
-  
-  get "users/new"
+
   match '/newuser', :to => 'users#new'
   
   root :to => 'pages#home'
