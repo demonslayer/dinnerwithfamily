@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def new
     @title = "Create User"
+    @user = User.new
   end
   
   def show

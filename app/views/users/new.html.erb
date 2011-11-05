@@ -1,2 +1,40 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>Create User</h1>
+
+<%= form_for(@user) do |f| %>
+
+	<div class = "field">
+		<p>
+		<%= f.label :name %><br/>
+		<%= f.text_field :name %><br/>
+		</p>
+	</div>
+	<div class = "field">
+		<p>
+		<%= f.label :robot %><br/>
+		<%= image_tag("databotavatar.png", :alt => "Data Bot", :class => "round") %>
+		<%= f.radio_button :robot, "databot.png" %> <%= f.label "Data Bot" %> <br/>
+		<%= image_tag("hoverbotavatar.png", :alt => "Hover Bot", :class => "round") %>
+		<%= f.radio_button :robot, "hoverbot.png" %> <%= f.label "Hover Bot" %> <br/>
+		<%= image_tag("tankbotavatar.png", :alt => "Tank Bot", :class => "round") %>
+		<%= f.radio_button :robot, "tankbot.png" %> <%= f.label "Tank Bot" %> <br/>
+		<%= image_tag("energybotavatar.png", :alt => "Energy Bot", :class => "round") %>
+		<%= f.radio_button :robot, "energybot.png" %> <%= f.label "Energy Bot" %> <br/>
+		</p>
+	</div>
+	<div class = "field">
+		<p>
+			<%= f.label :password %> <br/>
+			<%= f.password_field :password %> <br>
+		</p>
+	</div>
+	<div class = "field">
+		<p>
+			<%= f.label :password_confirmation %> <br/>
+			<%= f.password_field :password_confirmation %> <br>
+		</p>
+	</div>
+	<div class = "actions">
+		<%= f.submit "Create User" %>
+	</div>
+	
+<% end %>
