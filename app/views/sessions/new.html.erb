@@ -1,0 +1,23 @@
+<h1>Select User</h1>
+
+<%= form_for(:session, :url => sessions_path) do |f|%>
+<div class = "field">
+	<%= f.label :name %><br />
+	
+	<% @users = User.find(:all) %>
+	<% @users.each do |user| %>
+		<%= f.radio_button :name, user.name %> <%= f.label user.name %> <br/>
+	<%end%>
+</div>
+<div class = "field">
+	<%= f.label :password %> <br/>
+	<%= f.password_field :password %>
+</div>
+
+<div class = "actions"> 
+	<%= f.submit "Select User" %>
+</div>
+
+<p>Are none of these you? <%= link_to "Create a user now!", newuser_path %></p>
+
+<% end %>
