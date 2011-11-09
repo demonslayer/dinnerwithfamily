@@ -30,7 +30,7 @@ describe User do
   end
   
   it "should accept valid robot images" do
-    robots = %w[otter.png, kabloobilen.gif, bobmeister.jpg]
+    robots = %w[otterbot, kabloobilenbot, bobmeisterbot]
     robots.each do |robot|
       valid_robot = User.new(@attr.merge(:robot => robot))
       valid_robot.should be_valid
@@ -38,10 +38,10 @@ describe User do
   end
   
   it "should reject invalid robot images" do
-    robots = %w[otter.poo, ROBOT, jpg.robot]
+    robots = %w[poo, otter, kabloobilen]
     robots.each do |robot|
-      valid_robot = User.new(@attr.merge(:robot => robot))
-      valid_robot.should_not be_valid
+      invalid_robot = User.new(@attr.merge(:robot => robot))
+      invalid_robot.should_not be_valid
     end
   end
   
