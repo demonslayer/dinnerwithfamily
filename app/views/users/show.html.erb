@@ -4,7 +4,7 @@
 	<tr>
 		
 		<td class = "image">
-			<%= image_tag(@user.robot, :alt => @user.name, :class => "round") %>
+			<%= image_tag("#{@user.robot}.png", :alt => @user.name, :class => "round") %>
 		</td>
 		<td class = "stats"> 
 			<p> Your level is <%= @user.level %> </p>

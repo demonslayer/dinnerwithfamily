@@ -6,6 +6,7 @@
 	
 	<% @users = User.find(:all) %>
 	<% @users.each do |user| %>
+		<%= image_tag("#{user.robot}avatar.png", :alt => user.name, :class => "round") %>
 		<%= f.radio_button :name, user.name %> <%= f.label user.name %> <br/>
 	<%end%>
 </div>

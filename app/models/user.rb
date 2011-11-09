@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :name, :robot, :password, :password_confirmation, :level
   
-  image_regex = /.*\.(jpg|gif|png)/i
+  image_regex = /.*bot/i
   
   validates :name, :presence => true,
                     :length => { :maximum => 50 },
