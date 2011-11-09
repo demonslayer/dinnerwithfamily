@@ -5,8 +5,13 @@
 	<nav class="round">
 		<ul>
 			<li><%= link_to "Home", root_path %></li>
+			<% if signed_in? %>
+			<li><%= link_to "Profile", current_user %></li>
+			<li><%= link_to "Sign Out", signout_path, :method => :delete %></li>
+			<% else %>
 			<li><%= link_to "Select User", selectuser_path %></li>
 			<li><%= link_to "Create User", newuser_path %></li>
+			<% end %>
 			<li><%= link_to "Family Stats", familystats_path %></li>
 		</ul>
 	</nav>

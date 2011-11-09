@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     if @user.save
       @user.level = 1;
       @user.save
+      sign_in @user
       flash[:success] = "Welcome to Dinner with Family!"
       redirect_to @user
     else
