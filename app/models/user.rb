@@ -2,7 +2,8 @@ require 'digest'
 
 class User < ActiveRecord::Base
   attr_accessor :password
-  attr_accessible :name, :robot, :password, :password_confirmation, :level
+  attr_accessible :name, :robot, :password, :password_confirmation, :level, :joules, :totalbattles,
+                  :totalvictories
   
   image_regex = /.*bot/i
   

@@ -8,6 +8,10 @@
 		</td>
 		<td class = "stats"> 
 			<p> Your level is <%= @user.level %> </p>
+			<p> You have <%= @user.joules %> joules </p>
+			<p> You have fought in <%= @user.totalbattles %> battles 
+				and have won <%= @user.totalvictories %> and lost 
+				<%= @user.totalbattles - @user.totalvictories %> </p>
 		</td>
 		
 	</tr>
@@ -15,7 +19,7 @@
 </table>
 
 
-    <%= image_tag("input.png", :alt => "input data", :class => "round") %>     
-	<%= image_tag("admin.png", :alt => "admin", :class => "round") %>     
-	<%= image_tag("fight.png", :alt => "Fight!", :class => "round") %>     
-	<%= image_tag("shop.png", :alt => "Store", :class => "round") %>     
+    <!-- <%= image_tag("input.png", :alt => "input data", :class => "round") %>     
+    	<%= image_tag("admin.png", :alt => "admin", :class => "round") %>     
+    	<%= image_tag("fight.png", :alt => "Fight!", :class => "round") %>     
+    	<%= image_tag("shop.png", :alt => "Store", :class => "round") %>      -->

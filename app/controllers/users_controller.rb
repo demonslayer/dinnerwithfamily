@@ -11,7 +11,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      @user.level = 1;
+      @user.level = 1
+      @user.totalbattles = 0
+      @user.totalvictories = 0
+      @user.joules = 0
       @user.save
       sign_in @user
       flash[:success] = "Welcome to Dinner with Family!"
