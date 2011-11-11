@@ -203,23 +203,23 @@ describe UsersController do
     
   end
   
-  # describe "GET 'input'" do
-  #   
-  #   before(:each) do
-  #     @user = Factory(:user)
-  #     test_sign_in(@user)
-  #   end
-  #   
-  #   it "should be successful" do
-  #     get :input, :id => @user
-  #     response.should be_success
-  #   end
-  #   
-  #   it "should have the right title" do
-  #     get :input, :id => @user
-  #     response.should have_selector("title", :content => "Input Vegetables")
-  #   end
-  #   
-  # end
+  describe "GET 'input'" do
+    
+    before(:each) do
+      @user = Factory(:user)
+      test_sign_in(@user)
+    end
+    
+    it "should be successful" do
+      get :input, :id => @user
+      response.should be_success
+    end
+    
+    it "should have the right title" do
+      get :input, :id => @user
+      response.should have_selector("title", :content => "Input Vegetables")
+    end
+    
+  end
 
 end

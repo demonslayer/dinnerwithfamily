@@ -51,9 +51,9 @@ describe User do
     user_with_duplicate_name.should_not be_valid
   end
   
-  it "should require a password" do
-	  User.new(@attr.merge(:password => "", :password_confirmation => "")).should_not be_valid
-	end
+  #   it "should require a password" do
+  #   User.new(@attr.merge(:password => "", :password_confirmation => "")).should_not be_valid
+  # end
 
 	it "should require password confirmation" do
 	  User.new(@attr.merge(:password => "foo", :password_confirmation => "bar")).should_not be_valid
