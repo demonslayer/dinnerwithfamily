@@ -31,5 +31,13 @@ module SessionsHelper
   def remember_token
     cookies.signed[:remember_token] || [nil, nil]
   end
+  
+  def current_user?(user)
+    user == current_user
+  end
+  
+  def deny_access
+    redirect_to selectuser_path, :notice => "Please sign in to access this page"
+  end
 
 end
