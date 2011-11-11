@@ -1,14 +1,15 @@
 Dinnerwithfamily::Application.routes.draw do
-  
-  resources :users
+
+  resources :users 
+
   resources :sessions, :only => [:new, :create, :destroy]
-  
+
   get "pages/home"
   get "pages/about"
   get "pages/contact"
   get "pages/help"
   get "pages/familystats"
-  
+
   match '/contact', :to => 'pages#contact'
   match '/about', :to => 'pages#about'
   match '/help', :to => 'pages#help'
@@ -18,6 +19,8 @@ Dinnerwithfamily::Application.routes.draw do
   match '/selectuser', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
   
+  match 'users/:id/input', :to => 'users#input', :as => "input"
+
   root :to => 'pages#home'
 
   # The priority is based upon order of creation:

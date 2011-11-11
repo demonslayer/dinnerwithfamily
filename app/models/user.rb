@@ -3,7 +3,7 @@ require 'digest'
 class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :name, :robot, :password, :password_confirmation, :level, :joules, :totalbattles,
-                  :totalvictories
+                  :totalvictories, :vegetables
   
   image_regex = /.*bot/i
   
@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates :robot, :presence => true,
                     :format => { :with => image_regex }
                     
-  validates :password, :presence => true, :confirmation => true
+  validates :password, :confirmation => true
   
   before_save :encrypt_password
   

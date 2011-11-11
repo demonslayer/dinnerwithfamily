@@ -7,7 +7,7 @@
 			<li><%= link_to "Home", root_path %></li>
 			<% if signed_in? %>
 			<li><%= link_to "Profile", current_user %></li>
-			<li><%= link_to "Input Data", current_user %></li>
+			<li><%= link_to "Input Data", input_path(current_user) %></li>
 			<li><%= link_to "Store", current_user %></li>
 			<li><%= link_to "Battle", current_user %></li>
 			<li><%= link_to "Settings", edit_user_path(current_user) %></li>

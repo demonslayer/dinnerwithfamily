@@ -18,6 +18,7 @@ class UsersController < ApplicationController
       @user.totalbattles = 0
       @user.totalvictories = 0
       @user.joules = 0
+      @user.vegetables = 0
       @user.save
       sign_in @user
       flash[:success] = "Welcome to Dinner with Family!"
@@ -35,12 +36,19 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
+      @user.joules += @user.vegetables * 4
+      @user.save
       flash[:success] = "Profile Updated"
       redirect_to @user
     else
       @title = "Edit User"
       render 'edit'
     end
+  end
+  
+  def input
+    @user = User.find(params[:id])
+    @title = "Input Vegetables"
   end
   
   private
