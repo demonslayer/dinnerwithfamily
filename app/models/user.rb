@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates :robot, :presence => true,
                     :format => { :with => image_regex }
                     
-  validates :password, :confirmation => true
+  validates :password, :presence => true, :confirmation => true
   
   before_save :encrypt_password
   
