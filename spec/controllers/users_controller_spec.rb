@@ -155,7 +155,25 @@ describe UsersController do
 
       it "should have a flash message" do
         put :update, :id => @user, :user => @attr
-        flash[:success].should =~ /Updated/
+        flash[:success].should =~ /updated/
+      end
+      
+      describe "leveling up" do
+        before(:each) do
+          @attr = { :vegetables => 20 }
+        end
+        
+        it "should level up after the vegetables reaches 20" do
+          put :update, :id => @user, :user => @attr
+          @user.reload
+          @user.level.should == 2
+        end
+        
+        it "should inform the user they leveled up" do
+          put :update, :id => @user, :user => @attr
+          flash[:success].should =~ /level/
+        end
+        
       end
 
     end

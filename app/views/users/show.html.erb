@@ -12,6 +12,9 @@
 			<p> You have fought in <%= @user.totalbattles %> battles 
 				and have won <%= @user.totalvictories %> and lost 
 				<%= @user.totalbattles - @user.totalvictories %> </p>
+			<p> You have eaten <%= @user.vegetablesthislevel %> servings of vegetables
+				so far this level, and must eat <%= 20 - @user.vegetablesthislevel %> 
+				more to level up! </p>
 		</td>
 		
 	</tr>
