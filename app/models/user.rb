@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :name, :robot, :password, :password_confirmation, :level, :joules, :totalbattles,
                   :totalvictories, :vegetables
+                  
+  has_many :inventory_items, :dependent => :destroy
   
   image_regex = /.*bot/i
   
@@ -14,7 +16,7 @@ class User < ActiveRecord::Base
   validates :robot, :presence => true,
                     :format => { :with => image_regex }
                     
-  validates :password, :presence => true, :confirmation => true
+  validates :password, :presence => true, :confirmation => true, :on => :create
   
   before_save :encrypt_password
   
@@ -36,6 +38,7 @@ class User < ActiveRecord::Base
   private
   
     def encrypt_password
+      return if password == ""
       self.salt = make_salt if new_record?
       self.encrypted_password = encrypt(password)
     end

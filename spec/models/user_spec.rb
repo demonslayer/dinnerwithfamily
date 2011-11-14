@@ -105,5 +105,27 @@ describe User do
       end
 
     end
+    
+    describe "inventory associations" do
 
-  end
+      before(:each) do
+        @user = User.create(@attr)
+        @item = Factory(:inventory_item, :user => @user)
+      end
+
+      it "should have an inventory attribute" do
+        @user.should respond_to(:inventory_items)
+      end
+      
+      it "should have the right inventory" do
+        @user.inventory_items.should == [@item]
+      end
+      
+      it "should destroy associated inventory items" do
+        @user.destroy
+        InventoryItem.find_by_id(@item.id).should be nil
+      end
+      
+    end
+  
+end

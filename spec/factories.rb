@@ -9,3 +9,8 @@ Factory.define :user do |user|
   user.password "assword"
   user.password_confirmation "assword"
 end
+
+Factory.define :inventory_item do |item|
+  item.content "wizardhat"
+  item.association :user
+end

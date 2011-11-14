@@ -11,6 +11,11 @@
 		</p>
 	</div>
 	
+	<div class = "hidden" >
+		<%= f.hidden_field :password, :value => "" %>
+		<%= f.hidden_field :password_confirmation, :value => "" %>
+	</div>
+	
 	<div class = "actions" >
 		<p>
 		<%= f.submit "Submit" %>
