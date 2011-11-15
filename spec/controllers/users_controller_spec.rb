@@ -19,6 +19,14 @@ describe UsersController do
       get :show, :id => @user
       assigns(:user).should == @user
     end
+    
+    it "should show the user's inventory" do
+      item1 = Factory(:inventory_item, :user => @user, :content => "wizardhat")
+      item2 = Factory(:inventory_item, :user => @user, :content => "tophat")
+      get :show, :id => @user
+      response.should have_selector("img", :src => "/assets/wizardhat.png")
+      response.should have_selector("img", :src => "/assets/tophat.png")
+    end
 
   end
 

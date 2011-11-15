@@ -9,6 +9,8 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @title = @user.name
+    @inventory_items = @user.inventory_items
   end
   
   def create
@@ -19,6 +21,7 @@ class UsersController < ApplicationController
       @user.totalvictories = 0
       @user.joules = 0
       @user.vegetables = 0
+      @user.vegetablesthislevel = 0
       @user.save
       sign_in @user
       flash[:success] = "Welcome to Dinner with Family!"
@@ -37,6 +40,7 @@ class UsersController < ApplicationController
     flashmessage = "User data updated!"
     
     @user = User.find(params[:id])
+    
     if @user.update_attributes(params[:user])
       @user.joules += @user.vegetables * 4
       @user.vegetablesthislevel += @user.vegetables
@@ -62,10 +66,6 @@ class UsersController < ApplicationController
   end
   
   private
-  
-  def authenticate
-    deny_access unless signed_in?
-  end
   
   def correct_user
     @user = User.find(params[:id])

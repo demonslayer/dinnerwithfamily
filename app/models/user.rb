@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
                     :format => { :with => image_regex }
                     
   validates :password, :presence => true, :confirmation => true, :on => :create
-  
+    
   before_save :encrypt_password
   
   def has_password?(submitted_password)

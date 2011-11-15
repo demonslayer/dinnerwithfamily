@@ -19,6 +19,15 @@
 		
 	</tr>
 	
+	<tr>
+		<% unless @user.inventory_items.empty? %>
+		<table class="inventory" summary="Inventory">
+			<h3>Inventory</h3>
+			<%= render @inventory_items %>
+		</table>
+		<% end %>		
+	</tr>
+	
 </table>
 
 

@@ -4,7 +4,7 @@ describe InventoryItem do
   
   before(:each) do
     @user = Factory(:user)
-    @attr = { :content => "wizardhat"}
+    @attr = { :content => "wizardhat", :price => 100, :userjoules => 200}
   end
   
   it "should create a new instance given valid attributes" do
