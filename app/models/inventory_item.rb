@@ -3,6 +3,7 @@ class InventoryItem < ActiveRecord::Base
   belongs_to :user
   
   validates :userjoules, :numericality => true
+  validates :content, :presence => true
   validates_numericality_of :price, :less_than_or_equal_to => Proc.new { |r| r.userjoules }, :allow_blank => true
   
   def set_content

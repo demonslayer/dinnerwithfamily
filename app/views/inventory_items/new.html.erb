@@ -2,13 +2,18 @@
 
 <% if signed_in? %>
 <%= form_for(@inventory_item) do |f| %>
-	<%= render 'shared/error_messages', :object => f.object %>
 
 	<div class = "field">
+		<%= image_tag("cogavatar.png", :alt => "Cog", :class => "round") %>
+		<%= f.radio_button :content, "cog" %> <%= f.label "Cog - 20 J" %> <br/>
 		<%= image_tag("wizardhatavatar.png", :alt => "Wizard Hat", :class => "round") %>
 		<%= f.radio_button :content, "wizardhat" %> <%= f.label "Wizard Hat - 100 J" %> <br/>
 		<%= image_tag("tophatavatar.png", :alt => "Top Hat", :class => "round") %>
 		<%= f.radio_button :content, "tophat" %> <%= f.label "Top Hat - 200 J" %> <br/>
+		<%= image_tag("raygunavatar.png", :alt => "Ray Gun", :class => "round") %>
+		<%= f.radio_button :content, "raygun" %> <%= f.label "Ray Gun - 500 J" %> <br/>
+		<%= image_tag("jetpackavatar.png", :alt => "Jet Pack", :class => "round") %>
+		<%= f.radio_button :content, "jetpack" %> <%= f.label "Jet Pack - 750 J" %> <br/>
 	</div>
 	
 	<div class = "actions">
