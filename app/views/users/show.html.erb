@@ -5,6 +5,7 @@
 		
 		<td class = "image">
 			<%= image_tag("#{@user.robot}.png", :alt => @user.name, :class => "round") %>
+			<p> <%= @user.health %> out of <%= @user.maxhealth %> energy points </p>
 		</td>
 		<td class = "stats"> 
 			<p> Your level is <%= @user.level %> </p>

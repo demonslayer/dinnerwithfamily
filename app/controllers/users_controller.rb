@@ -17,6 +17,8 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       @user.level = 1
+      @user.health = 3
+      @user.maxhealth = 3
       @user.totalbattles = 0
       @user.totalvictories = 0
       @user.joules = 0
@@ -48,6 +50,8 @@ class UsersController < ApplicationController
       if (@user.vegetablesthislevel >= 20) 
         flashmessage = flashmessage + " Congratulations! Your robot has gained a level!"
         @user.level += 1
+        @user.health += 2
+        @user.maxhealth += 2
         @user.vegetablesthislevel -= 20
       end
       
