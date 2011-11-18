@@ -44,8 +44,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     
     if @user.update_attributes(params[:user])
-      @user.joules += @user.vegetables * 4
-      @user.vegetablesthislevel += @user.vegetables
+      
+      if (params[:user][:vegetables] != nil) 
+        @user.joules += @user.vegetables * 4
+        @user.vegetablesthislevel += @user.vegetables
+      end
       
       if (@user.vegetablesthislevel >= 20) 
         flashmessage = flashmessage + " Congratulations! Your robot has gained a level!"
