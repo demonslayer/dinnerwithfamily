@@ -1,0 +1,25 @@
+<h1>Battle Requests</h1>
+
+<% if signed_in? %>
+
+<p>Please select a user you'd like to challenge to battle!</p>
+
+<%= form_for(@battle) do |f| %>
+
+	<div class = "field">
+	
+	<% @users = User.find(:all) %>
+	<% @users.each do |user| %>
+		<% if user != current_user then %>
+			<%= image_tag("#{user.robot}avatar.png", :alt => user.name, :class => "round") %>
+			<%= f.radio_button :receiver_id, user.id %> <%= f.label user.name %> <br/>
+		<% end %>
+	<%end%>
+	</div>
+	
+	<div class = "actions">
+		<%= f.submit "Challenge to Battle!" %>
+	</div>
+	
+<% end %>
+<% end%>

@@ -5,6 +5,8 @@ Dinnerwithfamily::Application.routes.draw do
   resources :sessions, :only => [:new, :create, :destroy]
   
   resources :inventory_items, :only => [:create, :destroy]
+  
+  resources :battles, :only => [:create, :destroy]
 
   get "pages/home"
   get "pages/about"
@@ -22,6 +24,7 @@ Dinnerwithfamily::Application.routes.draw do
   match '/signout', :to => 'sessions#destroy'
   
   match '/store', :to => 'inventory_items#new'
+  match '/battle', :to => 'battles#new'
   
   match 'users/:id/input', :to => 'users#input', :as => "input"
 

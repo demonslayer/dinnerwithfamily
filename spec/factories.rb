@@ -7,6 +7,8 @@ Factory.define :user do |user|
   user.totalvictories 0
   user.vegetables 0
   user.vegetablesthislevel 0
+  user.health 3
+  user.maxhealth 3
   user.password "assword"
   user.password_confirmation "assword"
 end
