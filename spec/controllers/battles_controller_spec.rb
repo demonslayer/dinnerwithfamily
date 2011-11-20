@@ -4,20 +4,6 @@ describe BattlesController do
   
   render_views
   
-  describe "access control" do
-    
-    it "should deny access to 'create'" do
-      post :create
-      response.should redirect_to(selectuser_path)
-    end
-    
-    it "should deny access to 'destory'" do
-      delete :destroy, :id => 1
-      response.should redirect_to(selectuser_path)
-    end
-    
-  end
-  
   describe "GET 'new'" do
     it "should be successful" do
       get 'new'
@@ -70,11 +56,6 @@ describe BattlesController do
          lambda do
            post :create, :battle => @attr
          end.should change(Battle, :count)
-       end
-
-       it "should redirect to the user's profile page" do
-         post :create, :battle => @attr
-         response.should redirect_to(@user1)
        end
 
        it "should have a flash message" do

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111119224907) do
+ActiveRecord::Schema.define(:version => 20111120044459) do
 
   create_table "battles", :force => true do |t|
     t.datetime "created_at"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20111119224907) do
     t.integer  "receiver_id"
     t.integer  "winner_id"
     t.integer  "user_id"
+    t.boolean  "accepted"
   end
 
   create_table "inputs", :force => true do |t|

@@ -6,7 +6,7 @@ Dinnerwithfamily::Application.routes.draw do
   
   resources :inventory_items, :only => [:create, :destroy]
   
-  resources :battles, :only => [:create, :destroy]
+  resources :battles
 
   get "pages/home"
   get "pages/about"

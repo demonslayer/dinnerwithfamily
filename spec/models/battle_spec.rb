@@ -16,7 +16,7 @@ describe Battle do
   describe "user associations" do
     
     before(:each) do
-      @battle = @user1.battles.create(@attr)
+      @battle = @user1.sent_battles.create(@attr)
     end
     
     it "should respond to sender attribute" do
@@ -28,8 +28,6 @@ describe Battle do
     end
     
     it "should have the right associated users" do
-      @battle.sender_id.should == @user1.id
-      @battle.sender.should == @user1
       @battle.receiver.should == @user2
     end
   end

@@ -1,0 +1,14 @@
+<h1> Accept or Decline Battle Requests </h1>
+
+<%= form_for(@battle) do |f| %>
+	
+	<div class = "field">
+		<%= f.radio_button :accepted, true %> <%= f.label "Accept!" %> <br/>
+		<%= f.radio_button :accepted, false %> <%= f.label "Run Away!" %> <br/>
+	</div>
+	
+	<div class = "actions">
+		<%= f.submit "Respond to Battle Request!" %>
+	</div>
+	
+<% end%>

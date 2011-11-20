@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
                   :totalvictories, :vegetables, :vegetablesthislevel, :health, :maxhealth
                   
   has_many :inventory_items, :dependent => :destroy
-  has_many :battles
+  has_many :sent_battles, :class_name => "Battle"
+  has_many :received_battles, :class_name => "Battle"
   
   image_regex = /.*bot/i
   

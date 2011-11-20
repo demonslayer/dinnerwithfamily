@@ -2,6 +2,28 @@
 
 <% if signed_in? %>
 
+<% unless @user.sent_battles.empty? %>
+	<% @user.sent_battles.each do |battle| %>
+		<p><strong> <%= battle.sender.name %> has challenged you to battle! </strong>
+			<%= form_for(@battle) do |f| %>
+				<div class = "field">
+					<p>
+					<%= f.radio_button :accepted, true %> <%= f.label "Accept!" %> <br/>
+					<%= f.radio_button :accepted, false %> <%= f.label "Run Away!" %> <br/>
+					</p>
+				</div>
+				
+				<div class = "hidden" >
+					<%= f.hidden_field :current_battle, :value => battle.id %>
+				</div>
+
+				<div class = "actions">
+					<p><%= f.submit "Respond to Battle Request!" , :name => "respond" %></p>
+				</div>
+			<% end%>
+	<% end %>
+<% end %>
+
 <p>Please select a user you'd like to challenge to battle!</p>
 
 <%= form_for(@battle) do |f| %>
@@ -18,7 +40,7 @@
 	</div>
 	
 	<div class = "actions">
-		<%= f.submit "Challenge to Battle!" %>
+		<%= f.submit "Challenge to Battle!" , :name => "submit" %>
 	</div>
 	
 <% end %>
