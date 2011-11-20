@@ -30,14 +30,19 @@ class BattlesController < ApplicationController
         if opponent.health > current_user.health then
           current_user.health = 0
           current_user.totalbattles += 1
+          opponent.totalbattles += 1
+          opponent.totalvictories +=1
           flash[:error] = "Sorry, you lost the battle. Better luck next time!"
         else 
           current_user.totalbattles += 1
           current_user.totalvictories += 1
+          opponent.health = 0
+          opponent.totalbattles += 1
           flash[:success] = "Congratulations, you won the battle! You rock!"
         end
         
         current_user.save
+        opponent.save
         battle.destroy
         redirect_to "/battle"
         
