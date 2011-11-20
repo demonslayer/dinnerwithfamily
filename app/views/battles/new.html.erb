@@ -2,46 +2,55 @@
 
 <% if signed_in? %>
 
-<% unless @user.sent_battles.empty? %>
+	<% unless @user.sent_battles.empty? %>
 	<% @user.sent_battles.each do |battle| %>
-		<p><strong> <%= battle.sender.name %> has challenged you to battle! </strong>
-			<%= form_for(@battle) do |f| %>
-				<div class = "field">
-					<p>
-					<%= f.radio_button :accepted, true %> <%= f.label "Accept!" %> <br/>
-					<%= f.radio_button :accepted, false %> <%= f.label "Run Away!" %> <br/>
-					</p>
-				</div>
-				
-				<div class = "hidden" >
-					<%= f.hidden_field :current_battle, :value => battle.id %>
-				</div>
+	<p><strong> <%= battle.sender.name %> has challenged you to battle! </strong>
+		<%= form_for(@battle) do |f| %>
+		<div class = "field">
+			<p>
+				<%= f.radio_button :accepted, true %> <%= f.label "Accept!" %> <br/>
+				<%= f.radio_button :accepted, false %> <%= f.label "Run Away!" %> <br/>
+			</p>
+		</div>
 
-				<div class = "actions">
-					<p><%= f.submit "Respond to Battle Request!" , :name => "respond" %></p>
-				</div>
-			<% end%>
-	<% end %>
-<% end %>
+		<div class = "hidden" >
+			<%= f.hidden_field :current_battle, :value => battle.id %>
+		</div>
 
-<p>Please select a user you'd like to challenge to battle!</p>
+		<div class = "actions">
+			<p><%= f.submit "Respond to Battle Request!" , :name => "respond" %></p>
+		</div>
+		<% end %>
+		<% end %>
+		<% end %>
 
-<%= form_for(@battle) do |f| %>
+		<% @users = User.find(:all) %>
 
-	<div class = "field">
-	
-	<% @users = User.find(:all) %>
-	<% @users.each do |user| %>
-		<% if user != current_user then %>
+		<% if @users.size > 1 %>
+		
+		<p>Please select a user you'd like to challenge to battle!</p>
+
+		<%= form_for(@battle) do |f| %>
+
+		<div class = "field">
+
+			<% @users.each do |user| %>
+			<% if user != current_user then %>
 			<%= image_tag("#{user.robot}avatar.png", :alt => user.name, :class => "round") %>
 			<%= f.radio_button :receiver_id, user.id %> <%= f.label user.name %> <br/>
+			<% end %>
+			<%end%>
+		</div>
+
+		<div class = "actions">
+			<%= f.submit "Challenge to Battle!" , :name => "submit" %>
+		</div>
+
 		<% end %>
-	<%end%>
-	</div>
-	
-	<div class = "actions">
-		<%= f.submit "Challenge to Battle!" , :name => "submit" %>
-	</div>
-	
-<% end %>
-<% end%>
+
+		<% else %>
+		
+			<p>Sorry, you are the only user. You should recruit your friends and family!</p>
+		
+		<% end %>
+		<% end %>

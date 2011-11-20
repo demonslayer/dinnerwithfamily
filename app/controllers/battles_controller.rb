@@ -9,6 +9,7 @@ class BattlesController < ApplicationController
       # this prevents automatic over-writing of the password
       current_user.password = ""
       current_user.password_confirmation = ""
+
       
       if params[:battle][:accepted] == "false" then
         battle.destroy
@@ -26,6 +27,9 @@ class BattlesController < ApplicationController
       else
         opponent_id = battle.sender_id.to_i
         opponent = User.find_by_id(opponent_id)
+        
+        opponent.password = ""
+        opponent.password_confirmation = ""
         
         if opponent.health > current_user.health then
           current_user.health = 0
