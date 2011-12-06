@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       @user.vegetablesthislevel = 0
       @user.save
       sign_in @user
-      flash[:success] = "Welcome to Dinner with Family!"
+      flash[:success] = "Welcome to Robo-Dinner-Battles!"
       redirect_to @user
     else
       @title = "Create User"
@@ -45,8 +45,10 @@ class UsersController < ApplicationController
     
     if @user.update_attributes(params[:user])
       
-      if (params[:user][:vegetables] != nil) 
-        @user.joules += @user.vegetables * 10
+      if (params[:user][:vegetables] != nil)
+        numJoules = @user.vegetables * 10
+        flashmessage = flashmessage + " You have earned " + numJoules.to_s + " joules!"
+        @user.joules += numJoules
         @user.vegetablesthislevel += @user.vegetables
       end
       
