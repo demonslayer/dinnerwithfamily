@@ -1,19 +1,26 @@
 <h1>Store</h1>
 
 <% if signed_in? %>
+
+<p>Welcome to the store! You have <%= @user.joules %> joules to spend.
 <%= form_for(@inventory_item) do |f| %>
 
 	<div class = "field">
 		<%= image_tag("cogavatar.png", :alt => "Cog", :class => "round") %>
 		<%= f.radio_button :content, "cog" %> <%= f.label "Cog - 20 J" %> <br/>
+		<p>The cog will repair three points of damage from the robot.</p>
 		<%= image_tag("wizardhatavatar.png", :alt => "Wizard Hat", :class => "round") %>
 		<%= f.radio_button :content, "wizardhat" %> <%= f.label "Wizard Hat - 100 J" %> <br/>
+		<p>The stylish wizard hat will increase your magical prowess!</p>
 		<%= image_tag("tophatavatar.png", :alt => "Top Hat", :class => "round") %>
 		<%= f.radio_button :content, "tophat" %> <%= f.label "Top Hat - 200 J" %> <br/>
+		<p>The fancy top hat will decrease the accuracy of your opponent's attacks</p>
 		<%= image_tag("raygunavatar.png", :alt => "Ray Gun", :class => "round") %>
 		<%= f.radio_button :content, "raygun" %> <%= f.label "Ray Gun - 500 J" %> <br/>
+		<p>Use the ray gun to blast your enemies!</p>
 		<%= image_tag("jetpackavatar.png", :alt => "Jet Pack", :class => "round") %>
 		<%= f.radio_button :content, "jetpack" %> <%= f.label "Jet Pack - 750 J" %> <br/>
+		<p>The jet pack increases your speed and power, and also makes you look awesome.</p>
 	</div>
 	
 	<div class = "actions">

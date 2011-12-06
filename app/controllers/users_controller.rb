@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(params[:user])
       
       if (params[:user][:vegetables] != nil) 
-        @user.joules += @user.vegetables * 4
+        @user.joules += @user.vegetables * 10
         @user.vegetablesthislevel += @user.vegetables
       end
       

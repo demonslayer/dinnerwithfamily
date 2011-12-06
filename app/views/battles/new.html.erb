@@ -4,7 +4,8 @@
 
 	<% unless @user.sent_battles.empty? %>
 	<% @user.sent_battles.each do |battle| %>
-	<p><strong> <%= battle.sender.name %> has challenged you to battle! </strong>
+	<p><strong> <%= battle.sender.name %> has challenged you to battle! <%= battle.sender.name %> is level 
+	<%= battle.sender.level %>. You are level <%= @user.level %>. Do you accept?</strong>
 		<%= form_for(@battle) do |f| %>
 		<div class = "field">
 			<p>
