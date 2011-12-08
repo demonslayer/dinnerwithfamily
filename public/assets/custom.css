@@ -3,7 +3,8 @@
 }
 
 body {
-	background: #333333;
+	background-image:url('bg.jpg');
+	background-attachment:fixed;
 }
 
 header {
