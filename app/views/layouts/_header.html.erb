@@ -10,13 +10,14 @@
 			<li><%= link_to "Store", store_path %></li>
 			<li><%= link_to "Battle", "/battle" %></li>
 			<li><%= link_to "Settings", edit_user_path(current_user) %></li>
+			<li><%= link_to "Family Stats", familystats_path %></li>
 			<li><%= link_to "Sign Out", signout_path, :method => :delete %></li>
 			<% else %>
 			<li><%= link_to "Home", root_path %></li>
 			<li><%= link_to "Select User", selectuser_path %></li>
 			<li><%= link_to "Create User", newuser_path %></li>
-			<% end %>
 			<li><%= link_to "Family Stats", familystats_path %></li>
+			<% end %>
 		</ul>
 	</nav>
 </header>
