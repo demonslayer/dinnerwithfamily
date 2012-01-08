@@ -5,18 +5,48 @@
 	<nav class="round">
 		<ul>
 			<% if signed_in? %>
-			<li><%= link_to "Home", current_user %></li>
-			<li><%= link_to "Input Data", input_path(current_user) %></li>
-			<li><%= link_to "Store", store_path %></li>
-			<li><%= link_to "Battle", "/battle" %></li>
-			<li><%= link_to "Settings", edit_user_path(current_user) %></li>
-			<li><%= link_to "Family Stats", familystats_path %></li>
-			<li><%= link_to "Sign Out", signout_path, :method => :delete %></li>
+			<li>
+				<%= image_tag("home.png", :alt => "home")%>
+				<%= link_to "Home", current_user %>
+			</li>
+			<li>
+				<%= image_tag("inputdata.png", :alt => "input data")%>
+				<%= link_to "Input Data", input_path(current_user) %>
+			</li>
+			<li>
+				<%= image_tag("store.png", :alt => "store")%>
+				<%= link_to "Store", store_path %>
+			</li>
+			<li>
+				<%= image_tag("battle.png", :alt => "battle")%>
+				<%= link_to "Battle", "/battle" %>
+			</li>
+			<li>
+				<%= image_tag("settings.png", :alt => "settings")%>
+				<%= link_to "Settings", edit_user_path(current_user) %>
+			</li>
+			<li>
+				<%= image_tag("familystats.png", :alt => "family stats")%>
+				<%= link_to "Family Stats", familystats_path %>
+			</li>
+			<li>
+				<%= image_tag("signout.png", :alt => "sign out")%>
+				<%= link_to "Sign Out", signout_path, :method => :delete %>
+			</li>
+			
 			<% else %>
-			<li><%= link_to "Home", root_path %></li>
-			<li><%= link_to "Select User", selectuser_path %></li>
-			<li><%= link_to "Create User", newuser_path %></li>
-			<li><%= link_to "Family Stats", familystats_path %></li>
+			<li>
+				<%= image_tag("selectuser.png", :alt => "sign out")%>
+				<%= link_to "Select User", selectuser_path %>
+			</li>
+			<li>
+				<%= image_tag("createuser.png", :alt => "sign out")%>
+				<%= link_to "Create User", newuser_path %>
+			</li>
+			<li>
+				<%= image_tag("familystats.png", :alt => "sign out")%>
+				<%= link_to "Family Stats", familystats_path %>
+			</li>
 			<% end %>
 		</ul>
 	</nav>
