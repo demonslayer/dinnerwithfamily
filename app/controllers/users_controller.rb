@@ -47,7 +47,29 @@ class UsersController < ApplicationController
     if @user.update_attributes(params[:user])
       
       if (params[:user][:vegetables] != nil)
-        numJoules = @user.vegetables * 10
+        vegetable = params[:user][:vegtype]
+        if vegetable == "spinach"
+          numJoules = @user.vegetables * 13
+        elsif vegetable == "broccoli"
+          numJoules = @user.vegetables * 12
+        elsif vegetable == "cauliflower"
+          numJoules = @user.vegetables * 11
+        elsif vegetable == "peppers"
+          numJoules = @user.vegetables * 10
+        elsif vegetable == "tomatoes"
+          numJoules = @user.vegetables * 9
+        elsif vegetable == "greenbeans"
+          numJoules = @user.vegetables * 8
+        elsif vegetable == "mushrooms"
+          numJoules = @user.vegetables * 7
+        elsif vegetable == "carrots" 
+          numJoules = @user.vegetables * 6
+        elsif vegetable == "cucumber"
+          numJoules = @user.vegetables * 5
+        elsif vegetable == "eggplant"
+          numJoules = @user.vegetables * 4
+        end
+        
         flashmessage = flashmessage + " You have earned " + numJoules.to_s + " joules!"
         flashmessage = flashmessage + " Please continue to eat your " + params[:user][:vegtype] + "!"
         @user.joules += numJoules
