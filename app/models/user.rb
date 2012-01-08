@@ -3,7 +3,7 @@ require 'digest'
 class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :name, :robot, :password, :password_confirmation, :level, :joules, :totalbattles,
-                  :totalvictories, :vegetables, :vegetablesthislevel, :health, :maxhealth
+                  :totalvictories, :vegetables, :vegetablesthislevel, :health, :maxhealth, :equippeditem
                   
   has_many :inventory_items, :dependent => :destroy
   has_many :sent_battles, :class_name => "Battle"

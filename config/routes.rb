@@ -27,6 +27,7 @@ Dinnerwithfamily::Application.routes.draw do
   match '/battle', :to => 'battles#new'
   
   match 'users/:id/input', :to => 'users#input', :as => "input"
+  match 'users/:id/equip', :to => 'users#equip', :as => "equip"
 
   root :to => 'pages#home'
 

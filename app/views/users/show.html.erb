@@ -4,7 +4,7 @@
 	<tr>
 		
 		<td class = "image">
-			<%= image_tag("#{@user.robot}.png", :alt => @user.name, :class => "round") %>
+			<%= image_tag("#{@user.robot}#{@user.equippeditem}.png", :alt => @user.name, :class => "round") %>
 			<p> <%= @user.health %> out of <%= @user.maxhealth %> energy points </p>
 		</td>
 		<td class = "stats"> 
@@ -23,8 +23,25 @@
 	<tr>
 		<% unless @user.inventory_items.empty? %>
 		<table class="inventory" summary="Inventory">
+			<p> Click on an item to use or equip it! 
+			<% unless @user.equippeditem == "" %>
+				Currently, <%= @user.equippeditem %> is equipped. 
+			<% end %>
+			</p>
 			<h3>Inventory</h3>
-			<%= render @inventory_items %>
+			
+			<% for item in @inventory_items%>
+				<%= link_to itemimage = image_tag("#{item.content}.png", :alt => "#{item.content}", :class => "round"),
+				{:controller => "users", :action => "equip", :id => @user.id, :item => "#{item.content}"} %>
+			<% end %>
+			
+			<% unless @user.equippeditem == "" %>
+				<p>Un-Equip Items<br/>
+				<%= link_to unequip = image_tag("unequip.png", :alt => "Unequip item", :class => "round"),
+				{:controller => "users", :action => "equip", :id => @user.id, :item => ""} %>
+				</p>
+			<% end %>
+			
 		</table>
 		<% end %>		
 	</tr>

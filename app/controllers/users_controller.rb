@@ -24,6 +24,7 @@ class UsersController < ApplicationController
       @user.joules = 0
       @user.vegetables = 0
       @user.vegetablesthislevel = 0
+      @user.equippeditem = ""
       @user.save
       sign_in @user
       flash[:success] = "Welcome to Robo-Dinner-Battles!"
@@ -72,6 +73,46 @@ class UsersController < ApplicationController
   def input
     @user = User.find(params[:id])
     @title = "Input Vegetables"
+  end
+  
+  def equip
+    @user = User.find(params[:id])
+    @item = params[:item]
+    
+    if @item != "cog"
+      @user.equippeditem = @item
+      if @item == ""
+        @item = "no item"
+      end
+      flashmessage = "#{@item} is now equipped!"
+    else
+      if @user.health == @user.maxhealth
+        flashmessage = "You've got full health, you don't need to use that now!"
+      else
+        if @user.maxhealth - @user.health <= 3
+          @user.health = @user.maxhealth
+          flashmessage = "Recovered all your health! The cog was all used up!"
+        else
+          @user.health = @user.health + 3
+          flashmessage = "Recovered 3 health! The cog was all used up!"
+        end
+        for i in @user.inventory_items
+          if i.content == "cog"
+            @user.inventory_items.delete(i)
+          end
+        end
+      end
+    end
+      
+    
+    # getting rid of the password bug
+    @user.password = ""
+    @user.password_confirmation = ""
+    
+    @user.save
+    
+    flash[:success] = flashmessage
+    redirect_to @user
   end
   
   private

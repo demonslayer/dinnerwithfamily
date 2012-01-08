@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111120044459) do
+ActiveRecord::Schema.define(:version => 20120107231351) do
 
   create_table "battles", :force => true do |t|
     t.datetime "created_at"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20111120044459) do
     t.integer  "vegetablesthislevel"
     t.integer  "health"
     t.integer  "maxhealth"
+    t.string   "equippeditem"
   end
 
 end
