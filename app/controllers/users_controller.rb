@@ -49,6 +49,7 @@ class UsersController < ApplicationController
       if (params[:user][:vegetables] != nil)
         numJoules = @user.vegetables * 10
         flashmessage = flashmessage + " You have earned " + numJoules.to_s + " joules!"
+        flashmessage = flashmessage + " Please continue to eat your " + params[:user][:vegtype] + "!"
         @user.joules += numJoules
         @user.vegetablesthislevel += @user.vegetables
       end

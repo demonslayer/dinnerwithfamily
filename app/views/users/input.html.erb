@@ -11,6 +11,30 @@
 		</p>
 	</div>
 	
+	<div class = "field">
+		<p>What kind of vegetable did you eat?</p>
+		<%= image_tag("broccoli.png", :alt => "Broccoli", :class => "round") %>
+		<%= f.radio_button :vegtype, "broccoli" %> <%= f.label "Broccoli" %> <br/>
+		<%= image_tag("carrots.png", :alt => "Carrots", :class => "round") %>
+		<%= f.radio_button :vegtype, "carrots" %> <%= f.label "Carrots" %> <br/>
+		<%= image_tag("tomato.png", :alt => "Tomatoes", :class => "round") %>
+		<%= f.radio_button :vegtype, "tomatoes" %> <%= f.label "Tomatoes" %> <br/>
+		<%= image_tag("spinach.png", :alt => "Spinach", :class => "round") %>
+		<%= f.radio_button :vegtype, "spinach" %> <%= f.label "Spinach" %> <br/>
+		<%= image_tag("pepper.png", :alt => "Peppers", :class => "round") %>
+		<%= f.radio_button :vegtype, "peppers" %> <%= f.label "Peppers" %> <br/>
+		<%= image_tag("cucumber.png", :alt => "Cucumbers", :class => "round") %>
+		<%= f.radio_button :vegtype, "cucumbers" %> <%= f.label "Cucumbers" %> <br/>
+		<%= image_tag("greenbeans.png", :alt => "Green Beans", :class => "round") %>
+		<%= f.radio_button :vegtype, "green beans" %> <%= f.label "Green Beans" %> <br/>
+		<%= image_tag("eggplant.png", :alt => "Eggplant", :class => "round") %>
+		<%= f.radio_button :vegtype, "eggplant" %> <%= f.label "Eggplant" %> <br/>
+		<%= image_tag("mushrooms.png", :alt => "Mushrooms", :class => "round") %>
+		<%= f.radio_button :vegtype, "mushrooms" %> <%= f.label "Mushrooms" %> <br/>
+		<%= image_tag("cauliflower.png", :alt => "Cauliflower", :class => "round") %>
+		<%= f.radio_button :vegtype, "cauliflower" %> <%= f.label "Cauliflower" %> <br/>
+	</div>
+	
 	<div class = "hidden" >
 		<%= f.hidden_field :password, :value => "" %>
 		<%= f.hidden_field :password_confirmation, :value => "" %>
